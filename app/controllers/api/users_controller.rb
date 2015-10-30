@@ -13,6 +13,7 @@ class Api::UsersController < ApiController
       render json: user
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def destroy
