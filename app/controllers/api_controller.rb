@@ -17,7 +17,7 @@ class ApiController < ApplicationController
 
 
   def authenticated?
-    authenticated_or_request_http_basic { |username, password| User.where(name: username, password: password).first }
+    authenticate_or_request_http_basic { |username, password| @current_user = User.where(name: username, password: password).first }
   end
 
 end
